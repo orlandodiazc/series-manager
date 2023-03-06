@@ -18,7 +18,10 @@
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "react/prop-types": "warn",
+    "object-curly-newline": "warn",
+    "no-param-reassign": "warn"
   },
   "ignorePatterns": ["dist/", "build/"]
 }
