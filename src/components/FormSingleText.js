@@ -1,4 +1,6 @@
-const FormSingleText = ({ title, placeholder, categories, onAddBook }) => (
+const FormSingleText = ({
+  title, placeholder, categories, onAddBook,
+}) => (
   <div>
     <h1>{title}</h1>
     <form onSubmit={onAddBook}>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { add, getBooks, remove } from '../redux/books/booksSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { add, getBookData, getBooks, getStatus, remove } from '../redux/books/booksSlice';
 import Book from './Book';
 import FormSingleText from './FormSingleText';
 
@@ -9,12 +9,15 @@ const mockBooks = [];
 const mockCategories = ['Action', 'Comedy'];
 
 const Books = () => {
+  const status = useSelector(getStatus);
+  const booksData = useSelector(getBookData);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getBooks());
-  }, []);
 
-  const selectData = useSelector((state) => state.books, shallowEqual);
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(getBooks());
+    }
+  }, [status, dispatch]);
 
   const addBook = (event) => {
     event.preventDefault();
@@ -28,7 +31,7 @@ const Books = () => {
   return (
     <>
       <div>
-        {selectData.map((book) => (
+        {booksData.map((book) => (
           <Book key={book.id} book={book} onRemoveBook={removeBook} />
         ))}
       </div>

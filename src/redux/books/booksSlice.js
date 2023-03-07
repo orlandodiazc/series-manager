@@ -1,42 +1,48 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
+import fetchBooks from '../../queries/queries';
 
-const url = 'https://jsonplaceholder.typicode.com/users';
+const initialState = {
+  data: [],
+  status: 'idle',
+  error: null,
+};
 
-const initialState = [];
-
-const getBooks = createAsyncThunk('books/getBooks', async () => {
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    return error.message;
-  }
-});
+const getBooks = createAsyncThunk('books/getBooks', () => fetchBooks());
 
 const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
     add(state, action) {
-      state.books.push({
-        id: 0,
+      state.books.data.push({
+        id: uuidv4(),
         genre: action.payload.text,
         name: action.payload.name,
       });
     },
     remove(state, action) {
-      state.books.filter((book) => book.id !== action.payload.id);
+      state.books.data.filter((book) => book.id !== action.payload.id);
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getBooks.fulfilled, (state, action) => {
-      console.log(action.payload);
-      return action.payload;
-    });
+    builder.addCase(getBooks.pending, (state) => ({ ...state, status: 'loading' }));
+    builder.addCase(getBooks.fulfilled, (state, action) => ({
+      ...state,
+      data: action.payload,
+      status: 'succeeded',
+    }));
+    builder.addCase(getBooks.rejected, (state, action) => ({
+      ...state,
+      error: action.error,
+      status: 'failed',
+    }));
   },
 });
 
+const getStatus = (state) => state.books.status;
+const getBookData = (state) => state.books.data;
+
 export const { add, remove } = booksSlice.actions;
-export { getBooks };
+export { getBooks, getStatus, getBookData };
 export default booksSlice.reducer;
