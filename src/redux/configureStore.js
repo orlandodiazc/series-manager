@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import booksReducer from './books/booksSlice';
+import seriesReducer from './series/seriesSlice';
 
 const store = configureStore({
   reducer: {
-    books: booksReducer,
+    series: seriesReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

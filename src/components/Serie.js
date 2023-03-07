@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 
-const Book = ({ book, onRemoveBook }) => (
+const Serie = ({ series, onRemoveSeries }) => (
   <>
     <div>
-      <p>{book.name}</p>
-      <h1>{book.username}</h1>
+      <p>{series.category}</p>
+      <h1>{series.title}</h1>
+      <p>{series.director}</p>
     </div>
     <div>
       <ul>
@@ -12,7 +13,7 @@ const Book = ({ book, onRemoveBook }) => (
           <button type="button">Comments</button>
         </li>
         <li>
-          <button onClick={onRemoveBook} type="button">
+          <button onClick={() => onRemoveSeries(series.item_id)} type="button">
             Remove
           </button>
         </li>
@@ -35,8 +36,8 @@ const Book = ({ book, onRemoveBook }) => (
   </>
 );
 
-Book.propTypes = { book: PropTypes.shape({ username: PropTypes.string, name: PropTypes.string }) };
+Serie.propTypes = { book: PropTypes.shape({ username: PropTypes.string, name: PropTypes.string }) };
 
-Book.defaultProps = { book: { genre: 'hola', name: 'movie' } };
+Serie.defaultProps = { book: { genre: 'hola', name: 'movie' } };
 
-export default Book;
+export default Serie;
