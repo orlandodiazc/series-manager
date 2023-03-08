@@ -9,9 +9,9 @@ const Form = ({ title, categories, onAddSeries }) => {
   const submitSeries = (e) => {
     e.preventDefault();
     onAddSeries({ data: { title: seriesTitle, director, category } });
-    // setSeriesTitle('');
-    // setDirector('');
-    // setCategory('');
+    setSeriesTitle('');
+    setDirector('');
+    setCategory('');
   };
 
   return (
@@ -23,6 +23,7 @@ const Form = ({ title, categories, onAddSeries }) => {
             type="text"
             name="series-title"
             onChange={(e) => setSeriesTitle(e.target.value)}
+            value={seriesTitle}
             placeholder="Title"
             id="seriesTitle"
             className="form-control"
@@ -35,6 +36,7 @@ const Form = ({ title, categories, onAddSeries }) => {
             name="series-director"
             onChange={(e) => setDirector(e.target.value)}
             placeholder="Director"
+            value={director}
             id="seriesTitle"
             className="form-control"
             required
