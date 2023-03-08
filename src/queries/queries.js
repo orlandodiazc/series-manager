@@ -18,11 +18,11 @@ const fetchSeries = async () => {
   }
 };
 
-const postSeries = async (body) => {
+const postSeries = async (info) => {
   try {
     const res = await fetch(`${rootUrl}/apps/appId1/series`, {
       method: 'POST',
-      body,
+      body: JSON.stringify(info),
     });
     const data = await res.json();
     return data;
