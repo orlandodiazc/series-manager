@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
 import { deleteSeries, fetchSeries, postSeries } from '../../queries/queries';
 
 const getSeries = createAsyncThunk('series/getSeries', () => fetchSeries());
@@ -15,18 +14,19 @@ const initialState = {
 const seriesSlice = createSlice({
   name: 'series',
   initialState,
-  reducers: {
-    add(state, action) {
-      state.series.data.push({
-        id: uuidv4(),
-        genre: action.payload.text,
-        name: action.payload.name,
-      });
-    },
-    remove(state, action) {
-      state.series.data.filter((book) => book.id !== action.payload.id);
-    },
-  },
+  // reducers: {
+  //   add(state, action) {
+  //     state.series.data.push({
+  //       id: uuidv4(),
+  //       genre: action.payload.text,
+  //       name: action.payload.name,
+  //     });
+  //   },
+  //   remove(state, action) {
+  //     state.series.data.filter((book) => book.id !== action.payload.id);
+  //   },
+  // },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getSeries.pending, (state) => ({ ...state, status: 'loading' }))
@@ -47,7 +47,7 @@ const seriesSlice = createSlice({
       }))
       .addCase(addNewSeries.fulfilled, (state, action) => ({
         ...state,
-        data: [...state.data, action.payload],
+        data: [action.payload, ...state.data],
       }))
       .addCase(removeSeries.fulfilled, (state, action) => ({
         ...state,
@@ -59,6 +59,8 @@ const seriesSlice = createSlice({
 const getStatus = (state) => state.series.status;
 const getSeriesData = (state) => state.series.data;
 
-export const { add, remove } = seriesSlice.actions;
-export { getSeries, getStatus, getSeriesData, addNewSeries, removeSeries };
+// export const { add, remove } = seriesSlice.actions;
+export {
+  getSeries, getStatus, getSeriesData, addNewSeries, removeSeries,
+};
 export default seriesSlice.reducer;
