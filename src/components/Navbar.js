@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 const links = [
-  { path: '/', text: 'BOOKS' },
+  { path: '/', text: 'SERIES' },
   { path: 'categories', text: 'CATEGORIES' },
 ];
 
