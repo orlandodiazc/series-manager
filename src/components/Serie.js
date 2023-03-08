@@ -29,15 +29,21 @@ const Serie = ({ series, onRemoveSeries }) => (
       </div>
       <div>
         <h2>Current Chapter</h2>
-        <p>Chapter 17</p>
+        <p>Episode 17</p>
         <button type="button">Update Progress</button>
       </div>
     </div>
   </>
 );
 
-Serie.propTypes = { book: PropTypes.shape({ username: PropTypes.string, name: PropTypes.string }) };
-
-Serie.defaultProps = { book: { genre: 'hola', name: 'movie' } };
+Serie.propTypes = {
+  series: PropTypes.shape({
+    category: PropTypes.string,
+    title: PropTypes.string,
+    director: PropTypes.string,
+    item_id: PropTypes.string,
+  }).isRequired,
+  onRemoveSeries: PropTypes.func.isRequired,
+};
 
 export default Serie;
