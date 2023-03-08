@@ -32,7 +32,6 @@ const deleteSeries = async (body) => {
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    console.log(data);
     return data;
   } catch (error) {
     return error.message;
