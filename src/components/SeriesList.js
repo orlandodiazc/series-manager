@@ -10,8 +10,6 @@ import {
 import Form from './Form';
 import Serie from './Serie';
 
-// const mockseries = [];
-
 const mockCategories = ['Action', 'Comedy'];
 
 const SeriesList = () => {
@@ -33,20 +31,18 @@ const SeriesList = () => {
     dispatch(removeSeriesFromAPI({ data: { item_id: key } }));
   };
 
+  const isLoading = status === 'loading';
   return (
     <>
       <div>
-        {seriesData.map((series) => (
-          <Serie key={series.item_id} series={series} onRemoveSeries={removeSeries} />
-        ))}
+        {isLoading
+          ? 'Loading'
+          : seriesData.map((series) => (
+            <Serie key={series.item_id} series={series} onRemoveSeries={removeSeries} />
+          ))}
       </div>
       <div>
-        <Form
-          title="ADD NEW BOOK"
-          placeholder="Book title"
-          categories={mockCategories}
-          onAddSeries={addSeries}
-        />
+        <Form title="ADD NEW BOOK" categories={mockCategories} onAddSeries={addSeries} />
       </div>
     </>
   );
