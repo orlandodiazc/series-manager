@@ -33,7 +33,7 @@ const SeriesList = () => {
 
   const isLoading = status === 'loading';
   return (
-    <>
+    <div className="container">
       <div>
         {isLoading
           ? 'Loading'
@@ -44,7 +44,7 @@ const SeriesList = () => {
       <div>
         <Form title="ADD NEW BOOK" categories={mockCategories} onAddSeries={addSeries} />
       </div>
-    </>
+    </div>
   );
 };
 

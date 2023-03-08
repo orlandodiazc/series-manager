@@ -1,39 +1,49 @@
 import PropTypes from 'prop-types';
 
 const Serie = ({ series, onRemoveSeries }) => (
-  <>
-    <div>
+  <div className="my-3 row border p-4">
+    <div className="col">
       <p>{series.category}</p>
       <h1>{series.title}</h1>
       <p>{series.director}</p>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <ul className="nav">
+          <li className="nav-item">
+            <button type="button" className="btn btn-link nav-link ps-0 border-end">
+              Comments
+            </button>
+          </li>
+          <li className="nav-item">
+            <button
+              onClick={() => onRemoveSeries(series.item_id)}
+              type="button"
+              className="btn btn-link nav-link border-end"
+            >
+              Remove
+            </button>
+          </li>
+          <li className="nav-item">
+            <button type="button" className="btn btn-link nav-link">
+              Edit
+            </button>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <div>
-      <ul>
-        <li>
-          <button type="button">Comments</button>
-        </li>
-        <li>
-          <button onClick={() => onRemoveSeries(series.item_id)} type="button">
-            Remove
-          </button>
-        </li>
-        <li>
-          <button type="button">Edit</button>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <div>
+    <div className="col row">
+      <div className="col">
         <h2>64%</h2>
         <p>Completed</p>
       </div>
-      <div>
+      <div className="col">
         <h2>Current Chapter</h2>
         <p>Episode 17</p>
-        <button type="button">Update Progress</button>
+        <button type="button" className="btn btn-primary">
+          Update Progress
+        </button>
       </div>
     </div>
-  </>
+  </div>
 );
 
 Serie.propTypes = {
