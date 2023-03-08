@@ -9,9 +9,9 @@ const Form = ({ title, categories, onAddSeries }) => {
   const submitSeries = (e) => {
     e.preventDefault();
     onAddSeries({ data: { title: seriesTitle, director, category } });
-    setSeriesTitle('');
-    setDirector('');
-    setCategory('');
+    // setSeriesTitle('');
+    // setDirector('');
+    // setCategory('');
   };
 
   return (

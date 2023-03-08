@@ -6,6 +6,10 @@ const fetchSeries = async () => {
   try {
     const res = await fetch(`${rootUrl}/apps/appId1/series`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     });
     const data = await res.json();
     return data;
@@ -14,11 +18,11 @@ const fetchSeries = async () => {
   }
 };
 
-const postSeries = async (seriesInfo) => {
+const postSeries = async (body) => {
   try {
     const res = await fetch(`${rootUrl}/apps/appId1/series`, {
       method: 'POST',
-      body: JSON.stringify(seriesInfo),
+      body,
     });
     const data = await res.json();
     return data;
