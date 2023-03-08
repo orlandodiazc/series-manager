@@ -6,10 +6,6 @@ const fetchSeries = async () => {
   try {
     const res = await fetch(`${rootUrl}/apps/appId1/series`, {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
-      },
     });
     const data = await res.json();
     return data;
@@ -23,6 +19,10 @@ const postSeries = async (info) => {
     const res = await fetch(`${rootUrl}/apps/appId1/series`, {
       method: 'POST',
       body: JSON.stringify(info),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     });
     const data = await res.json();
     return data;
@@ -31,11 +31,15 @@ const postSeries = async (info) => {
   }
 };
 
-const deleteSeries = async (body) => {
+const deleteSeries = async (info) => {
   try {
-    const res = await fetch(`${rootUrl}/apps/appId1/series/${body.data.item_id}`, {
+    const res = await fetch(`${rootUrl}/apps/appId1/series/${info.data.item_id}`, {
       method: 'DELETE',
-      body: JSON.stringify(body),
+      body: JSON.stringify(info),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     });
     const data = await res.json();
     return data;
