@@ -15,10 +15,10 @@ const Form = ({ title, categories, onAddSeries }) => {
   };
 
   return (
-    <div className="me-3 border-top border-secondary my-5">
-      <h1 className="text-primary fs-3 mb-2 ms-2 my-3">{title}</h1>
+    <div className="border-top border-secondary my-5">
+      <h1 className="text-primary fs-3 my-3">{title}</h1>
       <form onSubmit={submitSeries} className="row mb-3">
-        <div className="col-md mb-3 mb-md-0 pe-0 pe-md-1">
+        <div className="col-md mb-3 mb-md-0">
           <input
             type="text"
             name="series-title"
@@ -26,11 +26,11 @@ const Form = ({ title, categories, onAddSeries }) => {
             value={seriesTitle}
             placeholder="Title"
             id="seriesTitle"
-            className="form-control text-bg-dark"
+            className="form-control text-bg-dark border-secondary"
             required
           />
         </div>
-        <div className="col-md mb-3 mb-md-0 pe-0 pe-md-1">
+        <div className="col-md mb-3 mb-md-0">
           <input
             type="text"
             name="series-director"
@@ -43,7 +43,7 @@ const Form = ({ title, categories, onAddSeries }) => {
           />
         </div>
 
-        <div className="col-md mb-3 mb-md-0 pe-0 pe-md-1">
+        <div className="col-md mb-3 mb-md-0">
           <select
             name="Category"
             id="category"
@@ -62,7 +62,7 @@ const Form = ({ title, categories, onAddSeries }) => {
             ))}
           </select>
         </div>
-        <div className="col-md-2 pe-md-0 pe-0 pe-md-1">
+        <div className="col-md-3 col-lg-2">
           <button type="submit" className="btn btn-primary w-100">
             Add Series
           </button>

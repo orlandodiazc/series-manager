@@ -21,7 +21,7 @@ import Serie from './Serie';
 //   },
 // ];
 
-const mockCategories = ['Action', 'Comedy'];
+const MOCK_CATEGORIES = ['Action', 'Comedy', 'Sci-Fi', 'Drama'];
 
 const SeriesList = () => {
   const status = useSelector(getStatus);
@@ -44,8 +44,8 @@ const SeriesList = () => {
 
   const isLoading = status === 'loading';
   return (
-    <div className="container-lg py-4">
-      <div>
+    <div className="py-4 px-3">
+      <div className="container-lg px-4">
         {isLoading ? (
           <div className="d-flex justify-content-center">
             <div className="spinner-border" role="status">
@@ -58,8 +58,8 @@ const SeriesList = () => {
           ))
         )}
       </div>
-      <div>
-        <Form title="ADD NEW BOOK" categories={mockCategories} onAddSeries={addSeries} />
+      <div className="container-lg">
+        <Form title="ADD NEW BOOK" categories={MOCK_CATEGORIES} onAddSeries={addSeries} />
       </div>
     </div>
   );

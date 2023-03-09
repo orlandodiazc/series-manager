@@ -26,16 +26,16 @@ const Navbar = () => (
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav w-100">
           {links.map((link) => (
-            <li key={link.text} className="nav-item mt-2">
+            <li key={link.text} className="nav-item mt-sm-2">
               <NavLink to={link.path} className="nav-link">
                 {link.text}
               </NavLink>
             </li>
           ))}
-          <li className="nav-item ms-sm-auto d-flex justify-content-center align-items-center">
+          <li className="nav-item ms-sm-auto ">
             <button
               type="button"
-              className="btn btn-dark border-secondary rounded-circle"
+              className="btn btn-dark border-secondary rounded-circle d-flex justify-content-center align-items-center"
               style={{ aspectRatio: 1 }}
             >
               <MdPerson color="#0d6efd" size={20} />
