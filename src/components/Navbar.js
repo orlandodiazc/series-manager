@@ -32,7 +32,7 @@ const Navbar = () => (
               </NavLink>
             </li>
           ))}
-          <li className="nav-item ms-sm-auto">
+          <li className="nav-item ms-sm-auto d-flex justify-content-center align-items-center">
             <button
               type="button"
               className="btn btn-dark border-secondary rounded-circle"
