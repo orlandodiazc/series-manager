@@ -8,9 +8,9 @@ const links = [
 
 const Navbar = () => (
   <nav className="navbar navbar-dark navbar-expand-sm bg-dark pt-1">
-    <div className="container">
+    <div className="container-lg">
       <a className="navbar-brand text-primary fs-2 fw-bold" href="/">
-        Navbar
+        SerieTraqueo
       </a>
       <button
         className="navbar-toggler"
@@ -23,24 +23,27 @@ const Navbar = () => (
       >
         <span className="navbar-toggler-icon" />
       </button>
-      <div className="collapse navbar-collapse position-relative" id="navbarNav">
-        <ul className="navbar-nav position-absolute" style={{ top: '-17px' }}>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav w-100">
           {links.map((link) => (
-            <li key={link.text} className="nav-item">
+            <li key={link.text} className="nav-item mt-2">
               <NavLink to={link.path} className="nav-link">
                 {link.text}
               </NavLink>
             </li>
           ))}
+          <li className="nav-item ms-sm-auto">
+            <button
+              type="button"
+              className="btn btn-dark border-secondary rounded-circle"
+              style={{ aspectRatio: 1 }}
+            >
+              <MdPerson color="#0d6efd" size={20} />
+              <span className="d-sm-none">Profile</span>
+            </button>
+          </li>
         </ul>
       </div>
-      <button
-        type="button"
-        className="btn btn-dark border border-secondary rounded-circle d-flex align-items-center justify-content-center"
-        style={{ aspectRatio: 1 }}
-      >
-        <MdPerson color="#0d6efd" size={20} />
-      </button>
     </div>
   </nav>
 );

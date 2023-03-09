@@ -15,10 +15,10 @@ const Form = ({ title, categories, onAddSeries }) => {
   };
 
   return (
-    <div>
-      <h1>{title}</h1>
+    <div className="me-3 border-top border-secondary my-5">
+      <h1 className="text-primary fs-3 mb-2 ms-2 my-3">{title}</h1>
       <form onSubmit={submitSeries} className="row mb-3">
-        <div className="col">
+        <div className="col-md mb-3 mb-md-0">
           <input
             type="text"
             name="series-title"
@@ -26,30 +26,30 @@ const Form = ({ title, categories, onAddSeries }) => {
             value={seriesTitle}
             placeholder="Title"
             id="seriesTitle"
-            className="form-control"
+            className="form-control text-bg-dark"
             required
           />
         </div>
-        <div className="col">
+        <div className="col-md mb-3 mb-md-0">
           <input
             type="text"
             name="series-director"
             onChange={(e) => setDirector(e.target.value)}
             placeholder="Director"
             value={director}
-            id="seriesTitle"
-            className="form-control"
+            id="seriesDirector"
+            className="form-control text-bg-dark border-secondary"
             required
           />
         </div>
 
-        <div className="col">
+        <div className="col-md mb-3 mb-md-0">
           <select
             name="Category"
             id="category"
             defaultValue=""
             onChange={(e) => setCategory(e.target.value)}
-            className="form-select"
+            className="form-select text-bg-dark border-secondary"
             required
           >
             <option value="" disabled>
@@ -62,10 +62,11 @@ const Form = ({ title, categories, onAddSeries }) => {
             ))}
           </select>
         </div>
-
-        <button type="submit" className="btn btn-primary col">
-          Add Series
-        </button>
+        <div className="col-md-2 pe-md-0">
+          <button type="submit" className="btn btn-primary w-100">
+            Add Series
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -10,6 +10,27 @@ import {
 import Form from './Form';
 import Serie from './Serie';
 
+// const mockData = [
+//   {
+//     item_id: '0',
+//     title: 'The Last Of Us',
+//     director: 'Neil Druckman',
+//     category: 'Action',
+//   },
+//   {
+//     item_id: '1',
+//     title: 'The Last Of Us',
+//     director: 'Neil Druckman',
+//     category: 'Action',
+//   },
+//   {
+//     item_id: '2',
+//     title: 'The Last Of Us',
+//     director: 'Neil Druckman',
+//     category: 'Action',
+//   },
+// ];
+
 const mockCategories = ['Action', 'Comedy'];
 
 const SeriesList = () => {
@@ -33,13 +54,19 @@ const SeriesList = () => {
 
   const isLoading = status === 'loading';
   return (
-    <div className="container">
+    <div className="container-lg py-4">
       <div>
-        {isLoading
-          ? 'Loading'
-          : seriesData.map((series) => (
+        {isLoading ? (
+          <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden ">Loading...</span>
+            </div>
+          </div>
+        ) : (
+          seriesData.map((series) => (
             <Serie key={series.item_id} series={series} onRemoveSeries={removeSeries} />
-          ))}
+          ))
+        )}
       </div>
       <div>
         <Form title="ADD NEW BOOK" categories={mockCategories} onAddSeries={addSeries} />
