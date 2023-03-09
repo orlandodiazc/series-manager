@@ -2,46 +2,44 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addNewSeries,
-  getSeries,
-  getSeriesData,
   getStatus,
   removeSeries as removeSeriesFromAPI,
 } from '../redux/series/seriesSlice';
 import Form from './Form';
 import Serie from './Serie';
 
-// const mockData = [
-//   {
-//     item_id: '0',
-//     title: 'The Last Of Us',
-//     director: 'Neil Druckman',
-//     category: 'Action',
-//   },
-//   {
-//     item_id: '1',
-//     title: 'The Last Of Us',
-//     director: 'Neil Druckman',
-//     category: 'Action',
-//   },
-//   {
-//     item_id: '2',
-//     title: 'The Last Of Us',
-//     director: 'Neil Druckman',
-//     category: 'Action',
-//   },
-// ];
+const mockData = [
+  {
+    item_id: '0',
+    title: 'The Last Of Us',
+    director: 'Neil Druckman',
+    category: 'Action',
+  },
+  {
+    item_id: '1',
+    title: 'The Last Of Us',
+    director: 'Neil Druckman',
+    category: 'Action',
+  },
+  {
+    item_id: '2',
+    title: 'The Last Of Us',
+    director: 'Neil Druckman',
+    category: 'Action',
+  },
+];
 
 const mockCategories = ['Action', 'Comedy'];
 
 const SeriesList = () => {
   const status = useSelector(getStatus);
-  const seriesData = useSelector(getSeriesData);
+  // const seriesData = useSelector(getSeriesData);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(getSeries());
-    }
+    // if (status === 'idle') {
+    //   dispatch(getSeries());
+    // }
   }, [status, dispatch]);
 
   const addSeries = (series) => {
@@ -52,7 +50,7 @@ const SeriesList = () => {
     dispatch(removeSeriesFromAPI({ data: { item_id: key } }));
   };
 
-  const isLoading = status === 'loading';
+  const isLoading = false;
   return (
     <div className="container-lg py-4">
       <div>
@@ -63,7 +61,7 @@ const SeriesList = () => {
             </div>
           </div>
         ) : (
-          seriesData.map((series) => (
+          mockData.map((series) => (
             <Serie key={series.item_id} series={series} onRemoveSeries={removeSeries} />
           ))
         )}

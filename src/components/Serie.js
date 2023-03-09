@@ -3,17 +3,17 @@ import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Serie = ({ series, onRemoveSeries }) => (
-  <div className="row border border-secondary bg-dark mb-3 py-3 ps-3 mx-1 rounded">
-    <div className="col my-4 my-md-0">
+  <div className="row border border-secondary bg-dark mx-1 py-1 mb-3 rounded">
+    <div className="col my-4 my-md-0 pe-0">
       <p className="text-secondary">{series.category}</p>
       <h1 className="fs-3 fw-bold">{series.title}</h1>
       <p className="fs-6 text-primary">{series.director}</p>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <ul className="nav">
+        <ul className="nav d-flex gap-2 gap-sm-3">
           <li className="nav-item">
             <button
               type="button"
-              className="btn btn-link nav-link ps-0 border-end rounded-0 py-0 pe-2 pe-md-4"
+              className="btn btn-link nav-link p-0 pe-2 pe-sm-3 border-end rounded-0"
             >
               Comments
             </button>
@@ -22,13 +22,13 @@ const Serie = ({ series, onRemoveSeries }) => (
             <button
               onClick={() => onRemoveSeries(series.item_id)}
               type="button"
-              className="btn btn-link nav-link border-end rounded-0 py-0 px-2 px-md-4"
+              className="btn btn-link nav-link p-0 pe-2 pe-sm-3 border-end rounded-0"
             >
               Remove
             </button>
           </li>
           <li className="nav-item">
-            <button type="button" className="btn btn-link nav-link rounded-0 py-0 px-2 px-md-4">
+            <button type="button" className="btn btn-link p-0 pe-1 nav-link rounded-0">
               Edit
             </button>
           </li>
