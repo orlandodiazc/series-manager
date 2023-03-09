@@ -47,12 +47,12 @@ const Serie = ({ series, onRemoveSeries }) => (
         </div>
         <div>
           <h2 className="fs-6 text-secondary pt-1">Completed</h2>
-          <p className="fs-3">64%</p>
+          <p className="fs-3">{`${Math.floor(series.totalEpisodes / series.currentEpisode)}%`}</p>
         </div>
       </div>
       <div className="col my-auto">
-        <h2 className="fs-6 text-secondary mb-1">CURRENT CHAPTER</h2>
-        <p className="mb-3">Episode 17</p>
+        <h2 className="fs-6 text-secondary mb-1">CURRENT EPISODE</h2>
+        <p className="mb-3">{`Episode ${series.currentEpisode}`}</p>
         <button type="button" className="btn btn-primary px-4 py-1 max-w-75">
           Update Progress
         </button>
@@ -67,6 +67,8 @@ Serie.propTypes = {
     title: PropTypes.string,
     director: PropTypes.string,
     item_id: PropTypes.string,
+    currentEpisode: PropTypes.number,
+    totalEpisodes: PropTypes.number,
   }).isRequired,
   onRemoveSeries: PropTypes.func.isRequired,
 };

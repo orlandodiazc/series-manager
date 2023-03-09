@@ -2,7 +2,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { deleteSeries, fetchSeries, postSeries } from '../../queries/queries';
 
 const getSeries = createAsyncThunk('series/getSeries', () => fetchSeries());
-const addNewSeries = createAsyncThunk('series/addNewSeries', (series) => postSeries(series));
+const addNewSeries = createAsyncThunk('series/addNewSeries', (series) => {
+  const seriesToSend = {
+    ...series,
+    currentEpisode: Math.floor(Math.random() * 100 + 10),
+    totalEpisodes: Math.floor(Math.random() * 100 + 10),
+  };
+  return postSeries(seriesToSend);
+});
 const removeSeries = createAsyncThunk('series/removeSeries', (seriesID) => deleteSeries(seriesID));
 
 const initialState = {
