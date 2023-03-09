@@ -27,7 +27,7 @@ After you're finished please remove all the comments and instructions!
 
 **Book Manager** is a SPA built with ReactJS/Redux
 
-[Live Site](#)
+[Live Site](https://exquisite-moonbeam-123b64.netlify.app/)
 
 ## Built With <a name="built-with"></a>
 
