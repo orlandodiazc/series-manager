@@ -5,8 +5,11 @@ const getSeries = createAsyncThunk('series/getSeries', () => fetchSeries());
 const addNewSeries = createAsyncThunk('series/addNewSeries', (series) => {
   const seriesToSend = {
     ...series,
-    currentEpisode: Math.floor(Math.random() * 100 + 10),
-    totalEpisodes: Math.floor(Math.random() * 100 + 10),
+    data: {
+      ...series.data,
+      currentEpisode: Math.floor(Math.random() * 100 + 10),
+      totalEpisodes: Math.floor(Math.random() * 100 + 10),
+    },
   };
   return postSeries(seriesToSend);
 });
