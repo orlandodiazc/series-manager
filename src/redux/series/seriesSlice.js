@@ -3,12 +3,14 @@ import { deleteSeries, fetchSeries, postSeries } from '../../queries/queries';
 
 const getSeries = createAsyncThunk('series/getSeries', () => fetchSeries());
 const addNewSeries = createAsyncThunk('series/addNewSeries', (series) => {
+  const currentEpisode = Math.floor(Math.random() * 21);
+  const totalEpisodes = Math.floor(Math.random() * 21 + currentEpisode);
   const seriesToSend = {
     ...series,
     data: {
       ...series.data,
-      currentEpisode: Math.floor(Math.random() * 100 + 10),
-      totalEpisodes: Math.floor(Math.random() * 100 + 10),
+      currentEpisode,
+      totalEpisodes,
     },
   };
   return postSeries(seriesToSend);

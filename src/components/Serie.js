@@ -47,7 +47,9 @@ const Serie = ({ series, onRemoveSeries }) => (
         </div>
         <div>
           <h2 className="fs-6 text-secondary pt-1">Completed</h2>
-          <p className="fs-3">{`${Math.floor(series.totalEpisodes / series.currentEpisode)}%`}</p>
+          <p className="fs-3">
+            {`${Math.floor((series.currentEpisode / series.totalEpisodes) * 100)}%`}
+          </p>
         </div>
       </div>
       <div className="col my-auto">
