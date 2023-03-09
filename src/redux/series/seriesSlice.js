@@ -26,18 +26,6 @@ const initialState = {
 const seriesSlice = createSlice({
   name: 'series',
   initialState,
-  // reducers: {
-  //   add(state, action) {
-  //     state.series.data.push({
-  //       id: uuidv4(),
-  //       genre: action.payload.text,
-  //       name: action.payload.name,
-  //     });
-  //   },
-  //   remove(state, action) {
-  //     state.series.data.filter((book) => book.id !== action.payload.id);
-  //   },
-  // },
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -71,8 +59,5 @@ const seriesSlice = createSlice({
 const getStatus = (state) => state.series.status;
 const getSeriesData = (state) => state.series.data;
 
-// export const { add, remove } = seriesSlice.actions;
-export {
-  getSeries, getStatus, getSeriesData, addNewSeries, removeSeries,
-};
+export { getSeries, getStatus, getSeriesData, addNewSeries, removeSeries };
 export default seriesSlice.reducer;

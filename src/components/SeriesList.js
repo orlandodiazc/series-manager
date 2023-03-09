@@ -10,17 +10,6 @@ import {
 import Form from './Form';
 import Serie from './Serie';
 
-// const mockData = [
-//   {
-//     item_id: '0',
-//     title: 'The Last Of Us',
-//     director: 'Neil Druckman',
-//     category: 'Action',
-//     currentEpisode: 20,
-//     totalEpisodes: 100,
-//   },
-// ];
-
 const MOCK_CATEGORIES = ['Action', 'Comedy', 'Sci-Fi', 'Drama'];
 
 const SeriesList = () => {
