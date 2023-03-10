@@ -32,6 +32,6 @@ picture {
 @media (min-width: 576px) {
   .btn-profile {
     border-radius: 50%;
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
   }
 }

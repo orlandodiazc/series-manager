@@ -59,5 +59,7 @@ const seriesSlice = createSlice({
 const getStatus = (state) => state.series.status;
 const getSeriesData = (state) => state.series.data;
 
-export { getSeries, getStatus, getSeriesData, addNewSeries, removeSeries };
+export {
+  getSeries, getStatus, getSeriesData, addNewSeries, removeSeries,
+};
 export default seriesSlice.reducer;
