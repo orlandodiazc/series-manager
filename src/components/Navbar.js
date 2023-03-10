@@ -32,11 +32,10 @@ const Navbar = () => (
               </NavLink>
             </li>
           ))}
-          <li className="nav-item ms-sm-auto ">
+          <li className="nav-item ms-sm-auto my-auto">
             <button
               type="button"
-              className="btn btn-dark border-secondary rounded-circle d-flex justify-content-center align-items-center"
-              style={{ aspectRatio: 1 }}
+              className="btn btn-dark btn-profile border-secondary d-flex justify-content-center align-items-center"
             >
               <MdPerson color="#0d6efd" size={20} />
               <span className="d-sm-none">Profile</span>

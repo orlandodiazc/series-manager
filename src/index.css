@@ -28,3 +28,10 @@ picture {
   max-width: 100%;
   display: block;
 }
+
+@media (min-width: 576px) {
+  .btn-profile {
+    border-radius: 50%;
+    aspect-ratio: 1;
+  }
+}
